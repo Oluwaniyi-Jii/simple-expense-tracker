@@ -52,6 +52,11 @@ allBtn.addEventListener("click", function(){
     inactive( [incomeBtn, expenseBtn] );
 })
 
+/* This is an event listener that is listening for a click on the addExpense button. When the button is
+clicked, the function is called. The function checks to see if the expenseTitle and expenseAmount
+inputs are empty. If they are, the function exits. If they are not empty, the function creates an
+object called expense and pushes it to the ENTRY_LIST array. Then the function calls the updateUI
+function and clears the inputs. */
 addExpense.addEventListener("click", function(){
     // IF ONE OF THE INPUTS IS EMPTY => EXIT
     if(!expenseTitle.value || !expenseAmount.value ) return;
@@ -68,6 +73,11 @@ addExpense.addEventListener("click", function(){
     clearInput( [expenseTitle, expenseAmount] )
 })
 
+/* This is an event listener that is listening for a click on the addIncome button. When the button is
+clicked, the function is called. The function checks to see if the incomeTitle and incomeAmount
+inputs are empty. If they are, the function exits. If they are not empty, the function creates an
+object called income and pushes it to the ENTRY_LIST array. Then the function calls the updateUI
+function and clears the inputs. */
 addIncome.addEventListener("click", function(){
     // IF ONE OF THE INPUTS IS EMPTY => EXIT
     if(!incomeTitle.value || !incomeAmount.value ) return;
@@ -90,24 +100,47 @@ allList.addEventListener("click", deleteOrEdit);
 
 // HELPERS
 
+/**
+ * If the target button is the delete button, delete the entry, otherwise if the target button is the
+ * edit button, edit the entry.
+ * @param event - The event object is a JavaScript object that contains useful information about an
+ * event.
+ */
 function deleteOrEdit(event){
     const targetBtn = event.target;
 
     const entry = targetBtn.parentNode;
 
     if( targetBtn.id == DELETE ){
+/**
+ * It takes an entry object as an argument, and then removes that entry from the ENTRY_LIST array.
+ * 
+ * The function then calls the updateUI() function to update the UI.
+ * @param entry - the entry to be deleted
+ */
         deleteEntry(entry);
     }else if(targetBtn.id == EDIT ){
         editEntry(entry);
     }
 }
 
+/**
+ * It takes an entry object as an argument, and then removes that entry from the ENTRY_LIST array.
+ * 
+ * The function then calls the updateUI() function to update the UI.
+ * @param entry - the entry to be deleted
+ */
 function deleteEntry(entry){
     ENTRY_LIST.splice( entry.id, 1);
 
     updateUI();
 }
 
+/**
+ * It takes the entry that was clicked on, finds the entry in the ENTRY_LIST array, and then deletes
+ * it.
+ * @param entry - the entry that was clicked on
+ */
 function editEntry(entry){
     console.log(entry)
     let ENTRY = ENTRY_LIST[entry.id];
@@ -123,6 +156,9 @@ function editEntry(entry){
     deleteEntry(entry);
 }
 
+/**
+ * It updates the UI with the current data in the ENTRY_LIST array
+ */
 function updateUI(){
     income = calculateTotal("income", ENTRY_LIST);
     outcome = calculateTotal("expense", ENTRY_LIST);
@@ -152,6 +188,15 @@ function updateUI(){
     localStorage.setItem("entry_list", JSON.stringify(ENTRY_LIST));
 }
 
+/**
+ * The showEntry function takes in a list, type, title, amount, and id, and then creates a new entry
+ * with the given parameters and inserts it into the list.
+ * @param list - the list that the entry will be added to
+ * @param type - income or expense
+ * @param title - the title of the entry
+ * @param amount - the amount of money that was entered
+ * @param id - the id of the entry
+ */
 function showEntry(list, type, title, amount, id){
 
     const entry = ` <li id = "${id}" class="${type}">
