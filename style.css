@@ -1,6 +1,7 @@
 body{
     background-color: #222;
     font-family: 'Poppins', sans-serif;;
+    font-size: 13px;
 }
 
 *{
@@ -33,6 +34,7 @@ input[type=number] {
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
     background-color: #34006a;
+    /* background-image: url("icon/edit.png"); */
 }
 
 .budget-container .app-title{
@@ -239,7 +241,7 @@ input[type=number] {
     height: 40px;
     width : 150px;
     padding-left: 10px;
-    font-size: 1.2em;
+    font-size: 1em;
     font-family: 'Poppins', sans-serif;;
     margin: 5px;
     margin-left: 10px;
@@ -251,7 +253,7 @@ input[type=number] {
     height: 40px;
     width : 110px;
     padding-left: 10px;
-    font-size: 1.2em;
+    font-size: 1em;
     font-family: 'Poppins', sans-serif;;
     margin: 5px;
     margin-left: -10px;
@@ -342,7 +344,7 @@ input[type=number] {
     height: 40px;
     width : 150px;
     padding-left: 10px;
-    font-size: 1.2em;
+    font-size: 1em;
     font-family: 'Poppins', sans-serif;;
     margin: 5px;
     margin-left: 10px;
@@ -354,7 +356,7 @@ input[type=number] {
     height: 40px;
     width : 110px;
     padding-left: 10px;
-    font-size: 1.2em;
+    font-size: 1em;
     font-family: 'Poppins', sans-serif;;
     margin: 5px;
     margin-left: -10px;
