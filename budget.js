@@ -38,12 +38,14 @@ expenseBtn.addEventListener("click", function(){
     hide( [incomeEl, allEl] );
     active( expenseBtn );
     inactive( [incomeBtn, allBtn] );
+    document.querySelector('#expense-title-input').focus()
 })
 incomeBtn.addEventListener("click", function(){
     show(incomeEl);
     hide( [expenseEl, allEl] );
     active( incomeBtn );
     inactive( [expenseBtn, allBtn] );
+    document.querySelector('#income-title-input').focus()
 })
 allBtn.addEventListener("click", function(){
     show(allEl);
